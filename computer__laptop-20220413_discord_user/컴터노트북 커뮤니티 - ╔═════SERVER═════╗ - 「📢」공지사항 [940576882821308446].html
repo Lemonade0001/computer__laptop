@@ -1,0 +1,3268 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>컴터노트북 커뮤니티 - 「&#128226;」공지사항</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-weight: 300;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-weight: 600;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-weight: 700;
+        }
+
+        body {
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+        }
+
+        .markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .preserve-whitespace {
+            white-space: pre-wrap;
+        }
+
+        .spoiler-text {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .spoiler-text--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .spoiler-text--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .spoiler-text--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .quote {
+            display: flex;
+            margin: 0.05em 0;
+        }
+
+        .quote::before {
+            content: "";
+            margin-right: 0.5em;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .pre--multiline {
+            margin-top: 0.25em;
+            padding: 0.5em;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .pre--multiline.hljs {
+            background-color: #2f3136;
+            color: #b9bbbe;
+        }
+
+        .pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+
+        .mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #dee0fc;
+            background-color: rgba(88, 101, 242, .3);
+            font-weight: 500;
+        }
+
+        .mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .emoji {
+            width: 1.325em;
+            height: 1.325em;
+            margin: 0 0.06em;
+            vertical-align: -0.4em;
+        }
+
+        .emoji--small {
+            width: 1em;
+            height: 1em;
+        }
+
+        .emoji--large {
+            width: 2.8em;
+            height: 2.8em;
+        }
+
+        .preamble {
+            display: grid;
+            margin: 0 0.3em 0.6em 0.3em;
+            max-width: 100%;
+            grid-template-columns: auto 1fr;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 0.6em;
+        }
+
+        .preamble__entry {
+            font-size: 1.4em;
+            color: #ffffff;
+        }
+
+        .preamble__entry--small {
+            font-size: 1em;
+        }
+
+        .chatlog {
+            max-width: 100%;
+        }
+
+        .chatlog__message-group {
+            display: grid;
+            margin: 0 0.6em;
+            padding: 0.9em 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            grid-template-columns: auto 1fr;
+        }
+
+        .chatlog__reference-symbol {
+            grid-column: 1;
+            margin: 8px 4px 4px 18px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            grid-column: 2;
+            margin-bottom: 0.25em;
+            font-size: 0.875em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            align-items: center;
+            color: #b5b6b8;
+        }
+
+        .chatlog__reference-avatar {
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25em;
+        }
+
+        .chatlog__reference-name {
+            margin-right: 0.3em;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-content a:hover {
+            text-decoration: none;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+            color: #b5b6b8;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.spoiler-text) {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25em;
+            font-size: 0.8em;
+            unicode-bidi: bidi-override;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .chatlog__author-avatar-container {
+            grid-column: 1;
+            width: 40px;
+            height: 40px;
+            margin-right: 16px;
+        }
+
+        .chatlog__author-avatar {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .chatlog__messages {
+            grid-column: 2;
+            min-width: 50%;
+            direction: ltr;
+        }
+
+        .chatlog__author-name {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3em;
+            font-size: 0.75em;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .chatlog__message {
+            padding: 0.1em 0.3em;
+            margin: 0 -0.3em;
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__content {
+            font-size: 0.95em;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15em;
+            font-size: 0.8em;
+        }
+
+        .chatlog__attachment {
+            display: inline-block;
+            position: relative;
+            margin-top: 0.3em;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            z-index: 999;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0.4em 0.8em;
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 20px;
+            color: #dcddde;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            vertical-align: top;
+            max-width: 45vw;
+            max-height: 500px;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            width: 100%;
+            max-width: 520px;
+            height: 40px;
+            padding: 10px;
+            background-color: #2f3136;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__edited-timestamp {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3em;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25em;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5em 0.6em;
+            background-color: rgba(46, 48, 54, 0.3);
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author {
+            display: flex;
+            margin-bottom: 0.3em;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            margin-right: 0.5em;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author-name {
+            font-size: 0.875em;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+            color: #ffffff
+        }
+
+        .chatlog__embed-author-name-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.2em;
+            font-size: 0.875em;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .chatlog__embed-description {
+            font-weight: 500;
+            font-size: 0.85em;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5em;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6em;
+            font-size: 0.875em;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 150px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2em;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .chatlog__embed-field-value {
+            font-weight: 500;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            margin-left: 1.2em;
+            max-width: 80px;
+            max-height: 80px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6em;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6em;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            margin-right: 0.2em;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            vertical-align: top;
+            max-width: 45vw;
+            max-height: 500px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6em;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            align-items: center;
+            margin: 0.35em 0.1em 0.1em 0;
+            padding: .125rem .375rem;
+            background-color: #2f3136;
+            border-radius: 8px;
+            border-color: transparent;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        .chatlog__reaction:hover {
+            border-color: hsla(0,0%,100%,.2);
+            border-width: 1px;
+            border-style: solid;
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35em;
+            font-size: 0.875em;
+            color: #b9bbbe;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__bot-tag {
+            position: relative;
+            top: -.1em;
+            margin-left: 0.3em;
+            padding: 0.05em 0.3em;
+            border-radius: 3px;
+            line-height: 1.3;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625em;
+            font-weight: 500;
+        }
+
+        .postamble {
+            margin: 1.4em 0.3em 0.6em 0.3em;
+            padding: 1em;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler-text--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler-text--hidden');
+            }
+            if (element && element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="icon-attachment" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z" />
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z" />
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z" />
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z" />
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://cdn.discordapp.com/icons/940569733730824212/9c54a1752a5e0b6ffb3d46c75aa9f34a.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">컴터노트북 커뮤니티</div>
+        <div class="preamble__entry">╔═════SERVER═════╗ / 「&#128226;」공지사항</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-09 10:21</span>
+
+            <div class="chatlog__message " data-message-id="940779496599072768" id="message-940779496599072768" title="Message sent: 2022-02-09 10:21">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span>  
+현제 미육과 크시와 티켓툴을 없엤습니다
+그리고 디스보드 추가함</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-17 14:56</span>
+
+            <div class="chatlog__message " data-message-id="943747814259838990" id="message-943747814259838990" title="Message sent: 2022-02-17 14:56">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+노래봇 <span class="mention" title="노래하는컴터봇#3445">@노래하는컴터봇</span> 을 24시간 돌릴까요?</span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="emoji emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">5</span>
+                            </div>
+                            <div class="chatlog__reaction" title="x">
+                                <img class="emoji emoji--small" alt="❌" src="https://twemoji.maxcdn.com/2/svg/274c.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-18 13:31</span>
+
+            <div class="chatlog__message " data-message-id="944088833509695488" id="message-944088833509695488" title="Message sent: 2022-02-18 13:31">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+죄송합니다...
+제가 봇을 관리을 안해서
+봇이 꺼지고
+제가 이상하게해서
+죄송합니다
+제가 이런일 없도록
+열심히
+관리하겠습니다
+죄송합니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-18 13:44</span>
+
+            <div class="chatlog__message " data-message-id="944092053422358559" id="message-944092053422358559" title="Message sent: 2022-02-18 13:44">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">+ 크시 추가</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-23 18:22</span>
+
+            <div class="chatlog__message " data-message-id="945973994128027648" id="message-945973994128027648" title="Message sent: 2022-02-23 18:22">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+서버 테러 방지을 위해 4단계의 인증시스템이 있습니다.
+그러므로. 여려분들이 그냥 가만히 있으면 됩니다</span>
+
+                                <span class="chatlog__edited-timestamp" title="2022-02-23 18:23">(edited)</span>
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-23 20:30</span>
+
+            <div class="chatlog__message " data-message-id="946005974886518784" id="message-946005974886518784" title="Message sent: 2022-02-23 20:30">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+이사람 팔로워 1000명되면
+뭐 입고 재로투친데요
+<a href="https://www.twitch.tv/delune1234">https://www.twitch.tv/delune1234</a></span>
+
+                                <span class="chatlog__edited-timestamp" title="2022-02-23 20:30">(edited)</span>
+                        </div>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.twitch.tv/delune1234">
+                                                        <div class="markdown preserve-whitespace">델룬_ - Twitch</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="markdown preserve-whitespace">월, 금, 토 오후 9시에 봅시다</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/SvEMGJM_L3VcBfa5KQbmrOE2LddgJR00QGEYKZQRuN0/https/static-cdn.jtvnw.net/jtv_user_pictures/7e6537e0-f5b9-495a-befc-87c06a5ebb7f-profile_image-300x300.png">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/SvEMGJM_L3VcBfa5KQbmrOE2LddgJR00QGEYKZQRuN0/https/static-cdn.jtvnw.net/jtv_user_pictures/7e6537e0-f5b9-495a-befc-87c06a5ebb7f-profile_image-300x300.png" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-24 14:09</span>
+
+            <div class="chatlog__message " data-message-id="946272703663452201" id="message-946272703663452201" title="Message sent: 2022-02-24 14:09">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+저랑같이 대규모서버 구축하실분은
+dm이나, 명령어에 <span class="pre pre--inline">컴터 티켓</span> 으로 문의주세요!</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-24 15:00</span>
+
+            <div class="chatlog__message " data-message-id="946285370113404969" id="message-946285370113404969" title="Message sent: 2022-02-24 15:00">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+트리거 잘하는분 찾습니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="946285421514600508" id="message-946285421514600508" title="Message sent: 2022-02-24 15:00">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">+있으시면 dm좀</span>
+
+                                <span class="chatlog__edited-timestamp" title="2022-02-24 15:00">(edited)</span>
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-24 15:43</span>
+
+            <div class="chatlog__message " data-message-id="946296199990894593" id="message-946296199990894593" title="Message sent: 2022-02-24 15:43">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">2개오는데</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="946297756434174032" id="message-946297756434174032" title="Message sent: 2022-02-24 15:49">
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/940576882821308446/946297755612110848/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/940576882821308446/946297755612110848/unknown.png" alt="Image attachment" title="Image: unknown.png (90.42 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-25 08:36</span>
+
+            <div class="chatlog__message " data-message-id="946551188881571891" id="message-946551188881571891" title="Message sent: 2022-02-25 08:36">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@here</span> 
+
+스크립트 코딩 트리거 건축 커맨드뽑습니다</span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="emoji emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="x">
+                                <img class="emoji emoji--small" alt="❌" src="https://twemoji.maxcdn.com/2/svg/274c.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="emoji emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-25 13:41</span>
+
+            <div class="chatlog__message " data-message-id="946628042321723422" id="message-946628042321723422" title="Message sent: 2022-02-25 13:41">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">현제 돈(에센셜 플러그인)을 만드는데요 그동안 서버에 못들어오니
+주의하시기 바랍니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-25 16:19</span>
+
+            <div class="chatlog__message " data-message-id="946667784824311808" id="message-946667784824311808" title="Message sent: 2022-02-25 16:19">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 거의 완성되었습니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-25 16:40</span>
+
+            <div class="chatlog__message " data-message-id="946673022188802059" id="message-946673022188802059" title="Message sent: 2022-02-25 16:40">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span>  완전히 완성되었습니다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1</span>
+
+                                <span class="chatlog__edited-timestamp" title="2022-02-25 16:40">(edited)</span>
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-25 20:31</span>
+
+            <div class="chatlog__message " data-message-id="946731209722040351" id="message-946731209722040351" title="Message sent: 2022-02-25 20:31">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 돈 명령어가 삭제되었습니다
+죄송합니다
+에브멘션도 ㅈㅅ..</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-26 18:55</span>
+
+            <div class="chatlog__message " data-message-id="947069329415999498" id="message-947069329415999498" title="Message sent: 2022-02-26 18:55">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+공지 여려분 에브멘션은 죄송합니다
+ㄷㅇㄷ데 이사람은 밴이되었습니다
+이제 인증안하시면 채팅이 불가입니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-26 22:14</span>
+
+            <div class="chatlog__message " data-message-id="947119473494732820" id="message-947119473494732820" title="Message sent: 2022-02-26 22:14">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">?</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="947119790034661386" id="message-947119790034661386" title="Message sent: 2022-02-26 22:15">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">?</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="947119829364658216" id="message-947119829364658216" title="Message sent: 2022-02-26 22:16">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@here</span> 
+공식초대링크
+<a href="https://discord.gg/CP6kHdPSD9">https://discord.gg/CP6kHdPSD9</a></span>
+
+                                <span class="chatlog__edited-timestamp" title="2022-02-26 22:16">(edited)</span>
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="947120332177809428" id="message-947120332177809428" title="Message sent: 2022-02-26 22:18">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">?</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="947120586994372648" id="message-947120586994372648" title="Message sent: 2022-02-26 22:19">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">아니</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="947120607135432724" id="message-947120607135432724" title="Message sent: 2022-02-26 22:19">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">미친봇아</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="947120739054665728" id="message-947120739054665728" title="Message sent: 2022-02-26 22:19">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+트위치!!!!
+<a href="https://twitch.tv/dmsolf">https://twitch.tv/dmsolf</a></span>
+
+                                <span class="chatlog__edited-timestamp" title="2022-02-26 22:20">(edited)</span>
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/766964862794072085/6b7f72ba311f81faebbc6aba2480de8c.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡#3128" data-user-id="766964862794072085" style="color: rgb(241,196,15)">! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡</span>
+
+
+        <span class="chatlog__timestamp">2022-02-26 22:20</span>
+
+            <div class="chatlog__message " data-message-id="947120834483474442" id="message-947120834483474442" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">안위</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="947120839613108234" id="message-947120839613108234" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">저기요</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-26 22:20</span>
+
+            <div class="chatlog__message " data-message-id="947120844549783592" id="message-947120844549783592" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">화질 저하</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/766964862794072085/6b7f72ba311f81faebbc6aba2480de8c.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡#3128" data-user-id="766964862794072085" style="color: rgb(241,196,15)">! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡</span>
+
+
+        <span class="chatlog__timestamp">2022-02-26 22:20</span>
+
+            <div class="chatlog__message " data-message-id="947120855924756560" id="message-947120855924756560" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">모바일 트위치로</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="947120860072931399" id="message-947120860072931399" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">보내면</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-26 22:20</span>
+
+            <div class="chatlog__message " data-message-id="947120869149380629" id="message-947120869149380629" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">ㅔ</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/766964862794072085/6b7f72ba311f81faebbc6aba2480de8c.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡#3128" data-user-id="766964862794072085" style="color: rgb(241,196,15)">! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡</span>
+
+
+        <span class="chatlog__timestamp">2022-02-26 22:20</span>
+
+            <div class="chatlog__message " data-message-id="947120870067937332" id="message-947120870067937332" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">어쩌라는거에요</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-26 22:20</span>
+
+            <div class="chatlog__message " data-message-id="947120880880848926" id="message-947120880880848926" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">ㅋㅋㅋㅋ</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/766964862794072085/6b7f72ba311f81faebbc6aba2480de8c.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡#3128" data-user-id="766964862794072085" style="color: rgb(241,196,15)">! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡</span>
+
+
+        <span class="chatlog__timestamp">2022-02-26 22:20</span>
+
+            <div class="chatlog__message " data-message-id="947120882273374218" id="message-947120882273374218" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">m.twitch</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="947120889760198729" id="message-947120889760198729" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">인데</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-02-26 22:20</span>
+
+            <div class="chatlog__message " data-message-id="947120901223235584" id="message-947120901223235584" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">ㅋㅋㅋ</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/766964862794072085/6b7f72ba311f81faebbc6aba2480de8c.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡#3128" data-user-id="766964862794072085" style="color: rgb(241,196,15)">! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡</span>
+
+
+        <span class="chatlog__timestamp">2022-02-26 22:20</span>
+
+            <div class="chatlog__message " data-message-id="947120916364664902" id="message-947120916364664902" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">근데 바꾸면</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="947120919602659328" id="message-947120919602659328" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">됨</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="947120930327515196" id="message-947120930327515196" title="Message sent: 2022-02-26 22:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">ㅅㄱ</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-01 10:13</span>
+
+            <div class="chatlog__message " data-message-id="948025239638515722" id="message-948025239638515722" title="Message sent: 2022-03-01 10:13">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@here</span> 
+유저 22명 ㄳ!!!</span>
+
+                        </div>
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/940576882821308446/948025238745137202/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/940576882821308446/948025238745137202/unknown.png" alt="Image attachment" title="Image: unknown.png (3.38 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="emoji emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="emoji emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="computer">
+                                <img class="emoji emoji--small" alt="&#128187;" src="https://twemoji.maxcdn.com/2/svg/1f4bb.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-01 10:26</span>
+
+            <div class="chatlog__message " data-message-id="948028535157702656" id="message-948028535157702656" title="Message sent: 2022-03-01 10:26">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@here</span> 
+서버 오픈
+서버 주소: asdk.kro.kr</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="948028680997855272" id="message-948028680997855272" title="Message sent: 2022-03-01 10:27">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">+ 약탈 야생입니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="948029121550762024" id="message-948029121550762024" title="Message sent: 2022-03-01 10:29">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">+ 버전 1.18</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="948029152727027802" id="message-948029152727027802" title="Message sent: 2022-03-01 10:29">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">1.18.1도 됨</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-01 12:31</span>
+
+            <div class="chatlog__message " data-message-id="948059894471360512" id="message-948059894471360512" title="Message sent: 2022-03-01 12:31">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@here</span> 
+서버 랙이 없어졌습니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-02 14:49</span>
+
+            <div class="chatlog__message " data-message-id="948456951317143592" id="message-948456951317143592" title="Message sent: 2022-03-02 14:49">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@here</span> 
+또 어제랑 똑같은 서버 오픈</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-02 15:37</span>
+
+            <div class="chatlog__message " data-message-id="948469136810467360" id="message-948469136810467360" title="Message sent: 2022-03-02 15:37">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" title="Lun&#226;r#9999">@루나</span> 
+밴</span>
+
+                        </div>
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/940576882821308446/948469136244244480/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/940576882821308446/948469136244244480/unknown.png" alt="Image attachment" title="Image: unknown.png (9.3 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-02 21:20</span>
+
+            <div class="chatlog__message " data-message-id="948555452843692062" id="message-948555452843692062" title="Message sent: 2022-03-02 21:20">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@here</span> 
+브릿지 테스트할 사람 구합니다 할사람 디엠</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="948556004986089492" id="message-948556004986089492" title="Message sent: 2022-03-02 21:22">
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/940576882821308446/948556004285624370/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/940576882821308446/948556004285624370/unknown.png" alt="Image attachment" title="Image: unknown.png (37.49 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="948556011155886090" id="message-948556011155886090" title="Message sent: 2022-03-02 21:22">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">아니 뭔</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="948556033339572224" id="message-948556033339572224" title="Message sent: 2022-03-02 21:23">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">전부다 자리비움이야</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-07 18:12</span>
+
+            <div class="chatlog__message " data-message-id="950320121514188821" id="message-950320121514188821" title="Message sent: 2022-03-07 18:12">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="950320129466572860" id="message-950320129466572860" title="Message sent: 2022-03-07 18:12">
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/940576882821308446/950320128124420176/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/940576882821308446/950320128124420176/unknown.png" alt="Image attachment" title="Image: unknown.png (15.76 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="950320156121378816" id="message-950320156121378816" title="Message sent: 2022-03-07 18:13">
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/940576882821308446/950320155538382918/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/940576882821308446/950320155538382918/unknown.png" alt="Image attachment" title="Image: unknown.png (1.75 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="950320190313345024" id="message-950320190313345024" title="Message sent: 2022-03-07 18:13">
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/940576882821308446/950320189621293066/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/940576882821308446/950320189621293066/unknown.png" alt="Image attachment" title="Image: unknown.png (13.1 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="950320200862007306" id="message-950320200862007306" title="Message sent: 2022-03-07 18:13">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">이걸 꺼줘서</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="950320233200103424" id="message-950320233200103424" title="Message sent: 2022-03-07 18:13">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">뒷메 방지을 해주세요!</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-09 17:53</span>
+
+            <div class="chatlog__message " data-message-id="951039962336342026" id="message-951039962336342026" title="Message sent: 2022-03-09 17:53">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+서버전용 리소스팩&amp;데이터팩이 완성되었습니다</span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="emoji emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="emoji emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thinking">
+                                <img class="emoji emoji--small" alt="&#129300;" src="https://twemoji.maxcdn.com/2/svg/1f914.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="middle_finger">
+                                <img class="emoji emoji--small" alt="&#128405;" src="https://twemoji.maxcdn.com/2/svg/1f595.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+        <div class="chatlog__reference-symbol"></div>
+        <div class="chatlog__reference">
+                <img class="chatlog__reference-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+                <span class="chatlog__reference-name" title="computer__laptop아님#2007" style="color: rgb(233,30,99)">랩탑</span>
+                <div class="chatlog__reference-content">
+                    <span class="chatlog__reference-link" onclick="scrollToMessage(event, &#39;943747814259838990&#39;)">
+<span class="mention">@everyone</span> 
+노래봇 <span class="mention" title="노래하는컴터봇#3445">@노래하는컴터봇</span> 을 24시간 돌릴까요?                    </span>
+
+                </div>
+        </div>
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-09 17:57</span>
+
+            <div class="chatlog__message " data-message-id="951041059176206376" id="message-951041059176206376" title="Message sent: 2022-03-09 17:57">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">✅ 이 5개이므로 24시간 돌리겠습니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="951041092005036043" id="message-951041092005036043" title="Message sent: 2022-03-09 17:57">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="color: rgb(96, 125, 139); background-color: rgba(96, 125, 139, 0.1);">@「유저」</span></span>
+
+                                <span class="chatlog__edited-timestamp" title="2022-03-09 17:57">(edited)</span>
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-09 19:04</span>
+
+            <div class="chatlog__message " data-message-id="951057999080874008" id="message-951057999080874008" title="Message sent: 2022-03-09 19:04">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">현재 서버 테스트중입니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-10 12:36</span>
+
+            <div class="chatlog__message " data-message-id="951322526888390706" id="message-951322526888390706" title="Message sent: 2022-03-10 12:36">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="color: rgb(96, 125, 139); background-color: rgba(96, 125, 139, 0.1);">@「유저」</span> 
+봇 서버 점검중입니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="951322615543377941" id="message-951322615543377941" title="Message sent: 2022-03-10 12:36">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">켜졌습니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="951322669280817192" id="message-951322669280817192" title="Message sent: 2022-03-10 12:36">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">^^7</span>
+
+                        </div>
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/940576882821308446/951322668756521011/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/940576882821308446/951322668756521011/unknown.png" alt="Image attachment" title="Image: unknown.png (5.02 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-10 13:34</span>
+
+            <div class="chatlog__message " data-message-id="951337124903391253" id="message-951337124903391253" title="Message sent: 2022-03-10 13:34">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="color: rgb(96, 125, 139); background-color: rgba(96, 125, 139, 0.1);">@「유저」</span> 
+테스트 할분 구합니다
+시간: 오후 2~오후 3시까지</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-10 15:08</span>
+
+            <div class="chatlog__message " data-message-id="951360925347250196" id="message-951360925347250196" title="Message sent: 2022-03-10 15:08">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="color: rgb(96, 125, 139); background-color: rgba(96, 125, 139, 0.1);">@「유저」</span> 
+테스트 할분 구합니다
+(마인크래프트)
+시간: 3:30분 부터 2시까지
+dm으로 문의 주세요!</span>
+
+                                <span class="chatlog__edited-timestamp" title="2022-03-10 15:08">(edited)</span>
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-10 15:17</span>
+
+            <div class="chatlog__message " data-message-id="951363156905721916" id="message-951363156905721916" title="Message sent: 2022-03-10 15:17">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@here</span> 
+현재 건축 잘하는분 찾습니다.
+이상하더라도. 리소스팩으로 변경이 가능하니.
+많은 신청 바랍니다.</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-10 18:41</span>
+
+            <div class="chatlog__message " data-message-id="951414368954892288" id="message-951414368954892288" title="Message sent: 2022-03-10 18:41">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@here</span> 
+박.제</span>
+
+                        </div>
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/940576882821308446/951414368434794496/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/940576882821308446/951414368434794496/unknown.png" alt="Image attachment" title="Image: unknown.png (3.74 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="951414791518425189" id="message-951414791518425189" title="Message sent: 2022-03-10 18:42">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" title="! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡#3128">@! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡</span></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-12 10:48</span>
+
+            <div class="chatlog__message " data-message-id="952020238243885056" id="message-952020238243885056" title="Message sent: 2022-03-12 10:48">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+일단 이건 엄청난 공지이기때문에 에브리원 하겠습니다
+당분간 서버에 못들어옵니다!
+왜냐하면 건축자들과 말을 하며 건축, 코딩, 데이터팩, 쉐이더, 리소스팩
+을 만들어야되니 당분간 불편하시더라도 양해 부탁드립니다.</span>
+
+                                <span class="chatlog__edited-timestamp" title="2022-03-13 11:37">(edited)</span>
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="952021436460056606" id="message-952021436460056606" title="Message sent: 2022-03-12 10:53">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">드디어
+제가 브릿지 서버만들었습니다(?)</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-13 11:38</span>
+
+            <div class="chatlog__message " data-message-id="952395200276344882" id="message-952395200276344882" title="Message sent: 2022-03-13 11:38">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="color: rgb(96, 125, 139); background-color: rgba(96, 125, 139, 0.1);">@「유저」</span> 
+테스트 해주실분 구합니다..
+신청은 dm</span>
+
+                                <span class="chatlog__edited-timestamp" title="2022-03-13 11:38">(edited)</span>
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-14 21:13</span>
+
+            <div class="chatlog__message " data-message-id="952902409963835392" id="message-952902409963835392" title="Message sent: 2022-03-14 21:13">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="color: rgb(96, 125, 139); background-color: rgba(96, 125, 139, 0.1);">@「유저」</span> 
+서버점검중 시간: 09:13~0930</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-14 21:27</span>
+
+            <div class="chatlog__message " data-message-id="952905689334939688" id="message-952905689334939688" title="Message sent: 2022-03-14 21:27">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">시간이 늘어났습니다 40분까지 입니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-15 14:55</span>
+
+            <div class="chatlog__message " data-message-id="953169539695255593" id="message-953169539695255593" title="Message sent: 2022-03-15 14:55">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">유저 37명 감삼다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-16 15:57</span>
+
+            <div class="chatlog__message " data-message-id="953547620352131132" id="message-953547620352131132" title="Message sent: 2022-03-16 15:57">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">테스트</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-16 16:21</span>
+
+            <div class="chatlog__message " data-message-id="953553608593506324" id="message-953553608593506324" title="Message sent: 2022-03-16 16:21">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">컴터 이모지달면뒤진다</span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="emoji emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="grinning">
+                                <img class="emoji emoji--small" alt="&#128512;" src="https://twemoji.maxcdn.com/2/svg/1f600.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="smile">
+                                <img class="emoji emoji--small" alt="&#128516;" src="https://twemoji.maxcdn.com/2/svg/1f604.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="sunglasses">
+                                <img class="emoji emoji--small" alt="&#128526;" src="https://twemoji.maxcdn.com/2/svg/1f60e.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ok_hand">
+                                <img class="emoji emoji--small" alt="&#128076;" src="https://twemoji.maxcdn.com/2/svg/1f44c.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="tongue">
+                                <img class="emoji emoji--small" alt="&#128069;" src="https://twemoji.maxcdn.com/2/svg/1f445.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="bust_in_silhouette">
+                                <img class="emoji emoji--small" alt="&#128100;" src="https://twemoji.maxcdn.com/2/svg/1f464.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="wave">
+                                <img class="emoji emoji--small" alt="&#128075;" src="https://twemoji.maxcdn.com/2/svg/1f44b.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="gift_heart">
+                                <img class="emoji emoji--small" alt="&#128157;" src="https://twemoji.maxcdn.com/2/svg/1f49d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="heartbeat">
+                                <img class="emoji emoji--small" alt="&#128147;" src="https://twemoji.maxcdn.com/2/svg/1f493.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="black_heart">
+                                <img class="emoji emoji--small" alt="&#128420;" src="https://twemoji.maxcdn.com/2/svg/1f5a4.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="brown_heart">
+                                <img class="emoji emoji--small" alt="&#129294;" src="https://twemoji.maxcdn.com/2/svg/1f90e.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="frog">
+                                <img class="emoji emoji--small" alt="&#128056;" src="https://twemoji.maxcdn.com/2/svg/1f438.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pig_nose">
+                                <img class="emoji emoji--small" alt="&#128061;" src="https://twemoji.maxcdn.com/2/svg/1f43d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="&#127782;">
+                                <img class="emoji emoji--small" alt="&#127782;" src="https://twemoji.maxcdn.com/2/svg/1f326.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="full_moon">
+                                <img class="emoji emoji--small" alt="&#127765;" src="https://twemoji.maxcdn.com/2/svg/1f315.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="shell">
+                                <img class="emoji emoji--small" alt="&#128026;" src="https://twemoji.maxcdn.com/2/svg/1f41a.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="tulip">
+                                <img class="emoji emoji--small" alt="&#127799;" src="https://twemoji.maxcdn.com/2/svg/1f337.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ox">
+                                <img class="emoji emoji--small" alt="&#128002;" src="https://twemoji.maxcdn.com/2/svg/1f402.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="monkey_face">
+                                <img class="emoji emoji--small" alt="&#128053;" src="https://twemoji.maxcdn.com/2/svg/1f435.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-16 17:52</span>
+
+            <div class="chatlog__message " data-message-id="953576557149044736" id="message-953576557149044736" title="Message sent: 2022-03-16 17:52">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="color: rgb(96, 125, 139); background-color: rgba(96, 125, 139, 0.1);">@「유저」</span> 
+마인크래프트 서버가 새롭게 시작됩니다!
+점검도 하기떄문에
+시간은 5:52분 부터 6:30분 까지 진행되오니
+불편하시더라도 양해부탁드립니다.
+서버에 이용에 불편을 드려 죄송합니다.</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-26 18:12</span>
+
+            <div class="chatlog__message " data-message-id="957205366536544317" id="message-957205366536544317" title="Message sent: 2022-03-26 18:12">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@here</span> 
+테스트하실분 구합니다
+테스트 하실분은 dm~</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-03-30 14:34</span>
+
+            <div class="chatlog__message " data-message-id="958600032343441448" id="message-958600032343441448" title="Message sent: 2022-03-30 14:34">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="color: rgb(96, 125, 139); background-color: rgba(96, 125, 139, 0.1);">@「유저」</span> 
+<span class="mention" title="컴터노트북 채팅봇(개발중)#1163">@컴터노트북 채팅봇(개발중)</span> 봇과 <span class="mention" title="노래하는컴터봇#3445">@노래하는컴터봇</span> 은 서비스 종료가 됩니다.
+그대신. 다른봇이 생깁니다.
+마인크래프트 or 디스코드봇
+연동입니다.
+봇과 모든 점검시간은 2시 33분부터 4시 까지 됩니다.
+잠시 이용에 불편을 드려 죄송합니다.</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-01 12:15</span>
+
+            <div class="chatlog__message " data-message-id="959289871590129786" id="message-959289871590129786" title="Message sent: 2022-04-01 12:15">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+vip랭크에 신청한다.
+✅ ❌</span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="x">
+                                <img class="emoji emoji--small" alt="❌" src="https://twemoji.maxcdn.com/2/svg/274c.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="emoji emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-01 15:21</span>
+
+            <div class="chatlog__message " data-message-id="959336597785051136" id="message-959336597785051136" title="Message sent: 2022-04-01 15:21">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">이벤트 종료.</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-02 15:52</span>
+
+            <div class="chatlog__message " data-message-id="959706913027788821" id="message-959706913027788821" title="Message sent: 2022-04-02 15:52">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">당첨자.
+이딥 <span class="mention" title="! ! ! ! ! ㄷㅇㄷ데#9708">@! ! ! ! ! ㄷㅇㄷ데</span> 
+임검 <span class="mention" title="임거미^_^#3486">@임거미^_^</span></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="959707058192654346" id="message-959707058192654346" title="Message sent: 2022-04-02 15:53">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><img loading="lazy" class="emoji emoji--large" alt="blob_dancing" title="blob_dancing" src="https://cdn.discordapp.com/emojis/786105683388137480.gif"></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="959707202564788234" id="message-959707202564788234" title="Message sent: 2022-04-02 15:53">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><img loading="lazy" class="emoji emoji--large" alt="good_cat" title="good_cat" src="https://cdn.discordapp.com/emojis/936227832525365299.png"></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-02 16:37</span>
+
+            <div class="chatlog__message " data-message-id="959718130664493087" id="message-959718130664493087" title="Message sent: 2022-04-02 16:37">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><img loading="lazy" class="emoji emoji--large" alt="👍" title="thumbsup" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg"></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-03 12:29</span>
+
+            <div class="chatlog__message " data-message-id="960018099548061746" id="message-960018099548061746" title="Message sent: 2022-04-03 12:29">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="">@공지사항 알림</span> 
+유저 40명 감사합니다!!!!</span>
+
+                        </div>
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/940576882821308446/960018098969251900/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/940576882821308446/960018098969251900/unknown.png" alt="Image attachment" title="Image: unknown.png (3.52 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-03 20:30</span>
+
+            <div class="chatlog__message " data-message-id="960139138571567134" id="message-960139138571567134" title="Message sent: 2022-04-03 20:30">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="">@공지사항 알림</span> 
+<span class="mention" title="CPM server#0608">@CPM server</span> 이라는 봇이 생겼습니다.
+이 봇은 제가 직접 개발한 봇 인므로. 제가 직접 수정후 완성되면 공지하겠습니다.</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-05 14:52</span>
+
+            <div class="chatlog__message " data-message-id="960779057887334430" id="message-960779057887334430" title="Message sent: 2022-04-05 14:52">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="">@공지사항 알림</span> 
+서버 리뉴얼 업데이트가 시작됩니다.
+마인크래프트봇, 서버 이모티콘 추가, 대규모 업데이트
+새롭게 디자인된 서버를 맞이합시다!</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="960779653675618304" id="message-960779653675618304" title="Message sent: 2022-04-05 14:55">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@here</span></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-07 19:36</span>
+
+            <div class="chatlog__message " data-message-id="961575081593696317" id="message-961575081593696317" title="Message sent: 2022-04-07 19:36">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="">@공지사항 알림</span> 
+hey 놀사람</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-09 11:09</span>
+
+            <div class="chatlog__message " data-message-id="962172315729264690" id="message-962172315729264690" title="Message sent: 2022-04-09 11:09">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention" style="color: rgb(96, 125, 139); background-color: rgba(96, 125, 139, 0.1);">@「유저」</span>  
+서버 이름 추표받습니다.
+마크 서버와 함께 할껍니다.
+서버 이름은 dm으로 ㅎ</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-10 11:04</span>
+
+            <div class="chatlog__message " data-message-id="962533378857517056" id="message-962533378857517056" title="Message sent: 2022-04-10 11:04">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">박제합니다</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="962533382326198332" id="message-962533382326198332" title="Message sent: 2022-04-10 11:04">
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/940576882821308446/962533381751570482/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/940576882821308446/962533381751570482/unknown.png" alt="Image attachment" title="Image: unknown.png (25.59 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-10 20:16</span>
+
+            <div class="chatlog__message " data-message-id="962672315659866122" id="message-962672315659866122" title="Message sent: 2022-04-10 20:16">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="mention">@everyone</span> 
+<a href="https://discord.gg/crtKkPegp6">https://discord.gg/crtKkPegp6</a>
+마크 서버 만들었습니다
+여기서 고지, 서버주소, 패치노트가 열립니다</span>
+
+                                <span class="chatlog__edited-timestamp" title="2022-04-10 20:20">(edited)</span>
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-10 20:31</span>
+
+            <div class="chatlog__message " data-message-id="962676155603902474" id="message-962676155603902474" title="Message sent: 2022-04-10 20:31">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">에브리원 죄송합니다 ㅎ</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+        <div class="chatlog__reference-symbol"></div>
+        <div class="chatlog__reference">
+                <img class="chatlog__reference-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+                <span class="chatlog__reference-name" title="computer__laptop아님#2007" style="color: rgb(233,30,99)">랩탑</span>
+                <div class="chatlog__reference-content">
+                    <span class="chatlog__reference-link" onclick="scrollToMessage(event, &#39;962533382326198332&#39;)">
+                            <em>Click to see attachment</em> <span>🖼️</span>
+                    </span>
+
+                </div>
+        </div>
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/766964862794072085/6b7f72ba311f81faebbc6aba2480de8c.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡#3128" data-user-id="766964862794072085" style="color: rgb(241,196,15)">! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡</span>
+
+
+        <span class="chatlog__timestamp">2022-04-12 17:11</span>
+
+            <div class="chatlog__message " data-message-id="963350547182792714" id="message-963350547182792714" title="Message sent: 2022-04-12 17:11">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="spoiler-text spoiler-text--hidden" onclick="showSpoiler(event, this)"><span class="mention">@here</span></span>
+님들 금방 <em>GameStation\</em> 아이피 뿌릴껍니다
+죄목 : 타서버 언급 , 컴터노트북 서버 (조금) 태러 ,등...</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="963351483280154645" id="message-963351483280154645" title="Message sent: 2022-04-12 17:14">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><span class="spoiler-text spoiler-text--hidden" onclick="showSpoiler(event, this)">211.34.242.45</span></span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-12 17:22</span>
+
+            <div class="chatlog__message " data-message-id="963353385644474370" id="message-963353385644474370" title="Message sent: 2022-04-12 17:22">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">ㅇㅋ</span>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+        <div class="chatlog__reference-symbol"></div>
+        <div class="chatlog__reference">
+                <img class="chatlog__reference-avatar" src="https://cdn.discordapp.com/avatars/766964862794072085/6b7f72ba311f81faebbc6aba2480de8c.png?size=128" alt="Avatar" loading="lazy">
+                <span class="chatlog__reference-name" title="! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡#3128" style="color: rgb(241,196,15)">! 5͜͡a͜͡k͜͡e͜͡_͜͡L͜͡</span>
+                <div class="chatlog__reference-content">
+                    <span class="chatlog__reference-link" onclick="scrollToMessage(event, &#39;963350547182792714&#39;)">
+<span class="spoiler-text spoiler-text--hidden" onclick="showSpoiler(event, this)"><span class="mention">@here</span></span>
+님들 금방 <em>GameStation\</em> 아이피 뿌릴껍니다
+죄목 : 타서버 언급 , 컴터노트북 서버 (조금) 태러 ,등...                    </span>
+
+                </div>
+        </div>
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/894160339883679776/828c8733b6f944425960a9ac573fb3cd.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="computer__laptop아님#2007" data-user-id="894160339883679776" style="color: rgb(233,30,99)">랩탑</span>
+
+
+        <span class="chatlog__timestamp">2022-04-12 17:24</span>
+
+            <div class="chatlog__message " data-message-id="963353852608929812" id="message-963353852608929812" title="Message sent: 2022-04-12 17:24">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">그리고 내 서버 스폰 테러</span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="regional_indicator_f">
+                                <img class="emoji emoji--small" alt="&#127467;" src="https://twemoji.maxcdn.com/2/svg/1f1eb.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="regional_indicator_e">
+                                <img class="emoji emoji--small" alt="&#127466;" src="https://twemoji.maxcdn.com/2/svg/1f1ea.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="regional_indicator_a">
+                                <img class="emoji emoji--small" alt="&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="regional_indicator_t">
+                                <img class="emoji emoji--small" alt="&#127481;" src="https://twemoji.maxcdn.com/2/svg/1f1f9.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 99 message(s)</div>
+</div>
+
+</body>
+
+</html>
